@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>pizzaWatch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>pizzaWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>pizzeria.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>5B7BA7EC1D8D452B0062EA42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5BB83D291D96DF07004161D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

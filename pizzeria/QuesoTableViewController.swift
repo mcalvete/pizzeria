@@ -18,8 +18,6 @@ class QuesoTableViewController: UITableViewController, IngredientesUpdateProtoco
     
     var pizza : Pizza?
     
-    var queso : [String] = ["Mozzarella", "Cheddar", "Sin queso"]
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let siguienteVista = segue.destination as! IngredientesTableViewController
         siguienteVista.delegate = self
@@ -48,13 +46,13 @@ class QuesoTableViewController: UITableViewController, IngredientesUpdateProtoco
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return queso.count
+        return pizza!.quesoOptions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel!.text = queso[indexPath.row]
+        cell.textLabel!.text = pizza!.quesoOptions[indexPath.row]
         
         return cell
     }
@@ -70,11 +68,11 @@ class QuesoTableViewController: UITableViewController, IngredientesUpdateProtoco
             let t : String = (self.pizza?.queso)!
             var i = 0
             switch t {
-            case queso[0]:
+            case pizza!.quesoOptions[0]:
                 i = 0
-            case queso[1]:
+            case pizza!.quesoOptions[1]:
                 i = 1
-            case queso[2]:
+            case pizza!.quesoOptions[2]:
                 i = 2
             default:
                 i = 0

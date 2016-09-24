@@ -18,8 +18,6 @@ class MasaTableViewController: UITableViewController, QuesoUpdateProtocol {
     
     var pizza : Pizza?
     
-    var masas : [String] = ["Delgada", "Crujiente", "Gruesa"]
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let siguienteVista = segue.destination as! QuesoTableViewController
         siguienteVista.delegate = self
@@ -48,13 +46,13 @@ class MasaTableViewController: UITableViewController, QuesoUpdateProtocol {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return masas.count
+        return pizza!.masaOptions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel!.text = masas[indexPath.row]
+        cell.textLabel!.text = pizza!.masaOptions[indexPath.row]
         
         return cell
     }
@@ -70,11 +68,11 @@ class MasaTableViewController: UITableViewController, QuesoUpdateProtocol {
             let t : String = (self.pizza?.masa)!
             var i = 0
             switch t {
-            case masas[0]:
+            case pizza!.masaOptions[0]:
                 i = 0
-            case masas[1]:
+            case pizza!.masaOptions[1]:
                 i = 1
-            case masas[2]:
+            case pizza!.masaOptions[2]:
                 i = 2
             default:
                 i = 0

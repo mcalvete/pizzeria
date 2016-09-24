@@ -18,8 +18,6 @@ class IngredientesTableViewController: UITableViewController {
     
     var pizza : Pizza?
     
-    var ingredientes : [String] = ["Jamón", "Pepperoni", "Pavo", "Salchicha", "Aceituna", "Cebolla", "Pimiento", "Piña", "Anchoa"]
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let siguienteVista = segue.destination as! PopUpViewController
         siguienteVista.pizza = self.pizza
@@ -47,7 +45,7 @@ class IngredientesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredientes.count
+        return pizza!.ingredienteOptions.count
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -84,7 +82,7 @@ class IngredientesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel!.text = ingredientes[indexPath.row]
+        cell.textLabel!.text = pizza!.ingredienteOptions[indexPath.row]
         
         return cell
     }
@@ -92,8 +90,8 @@ class IngredientesTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         if (!(self.pizza?.ingredientes.isEmpty)!) {
             let t : [String] = (self.pizza?.ingredientes)!
-            for i in 0..<ingredientes.count {
-                if (t.contains(ingredientes[i])) {
+            for i in 0..<pizza!.ingredienteOptions.count {
+                if (t.contains(pizza!.ingredienteOptions[i])) {
                 let indexPath : IndexPath = NSIndexPath(item: i, section: 0) as IndexPath
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.top)
                 }

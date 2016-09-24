@@ -7,6 +7,11 @@
 //
 
 class Pizza {
+    var tamanoOptions : [String] = ["Pequeña", "Mediana", "Grande"]
+    var masaOptions : [String] = ["Delgada", "Crujiente", "Gruesa"]
+    var quesoOptions : [String] = ["Mozzarella", "Cheddar", "Sin queso"]
+    var ingredienteOptions : [String] = ["Jamón", "Pepperoni", "Pavo", "Salchicha", "Aceituna", "Cebolla", "Pimiento", "Piña", "Anchoa"]
+    
     var tamano : String = ""
     var masa : String = ""
     var queso : String = ""

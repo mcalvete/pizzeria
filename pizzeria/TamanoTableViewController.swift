@@ -12,8 +12,6 @@ class TamanoTableViewController: UITableViewController, MasaUpdateProtocol {
     
     var pizza : Pizza?
     
-    var tamanos : [String] = ["Pequeña", "Mediana", "Grande"]
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let siguienteVista = segue.destination as! MasaTableViewController
         siguienteVista.delegate = self
@@ -42,16 +40,16 @@ class TamanoTableViewController: UITableViewController, MasaUpdateProtocol {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tamanos.count
+        return pizza!.tamanoOptions.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
-        cell.textLabel!.text = tamanos[indexPath.row]
+        cell.textLabel!.text = pizza!.tamanoOptions[indexPath.row]
         
-        if (pizza?.tamano == tamanos[indexPath.row]) {
+        if (pizza?.tamano == pizza!.tamanoOptions[indexPath.row]) {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.top)
         }
 
@@ -68,11 +66,11 @@ class TamanoTableViewController: UITableViewController, MasaUpdateProtocol {
             let t : String = (self.pizza?.tamano)!
             var i = 0
             switch t {
-            case tamanos[0]:
+            case pizza!.tamanoOptions[0]:
                 i = 0
-            case tamanos[1]:
+            case pizza!.tamanoOptions[1]:
                 i = 1
-            case tamanos[2]:
+            case pizza!.tamanoOptions[2]:
                 i = 2
             default:
                 i = 0
